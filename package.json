@@ -1,0 +1,36 @@
+{
+  "name": "jhipster-cli-bot",
+  "version": "0.0.1-alpha",
+  "description": "Tries to browser all the possible answers of the JHipster Yeoman generator to create a feature model",
+  "dependencies": {
+    "tmp": "^0.0.33"
+  },
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "eslint-config-kevoree": "^1.0.1"
+  },
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxleiko/jhipster-cli-bot.git"
+  },
+  "keywords": [
+    "jhipster",
+    "bot",
+    "CLI",
+    "feature",
+    "model"
+  ],
+  "author": "Maxime Tricoire <max.tricoire@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maxleiko/jhipster-cli-bot/issues"
+  },
+  "homepage": "https://github.com/maxleiko/jhipster-cli-bot#readme"
+}
