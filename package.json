@@ -3,11 +3,11 @@
   "version": "0.0.1-alpha",
   "description": "Tries to browser all the possible answers of the JHipster Yeoman generator to create a feature model",
   "dependencies": {
-    "pegjs": "^0.10.0",
     "strip-ansi": "^4.0.0",
     "tmp": "^0.0.33"
   },
   "devDependencies": {
+    "pegjs": "^0.10.0",
     "eslint": "^4.11.0",
     "eslint-config-kevoree": "^1.0.1"
   },
