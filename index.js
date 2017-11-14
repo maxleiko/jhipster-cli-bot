@@ -1,6 +1,9 @@
+const fs = require('fs');
 const { spawn } = require('child_process');
+const path = require('path');
 const tmp = require('tmp');
-const parseQuestion = require('./lib/parse-question');
+const stripAnsi = require('strip-ansi');
+const parser = require('./lib/parser');
 const answerQuestion = require('./lib/answer-question');
 
 let counter = 0;
@@ -14,21 +17,18 @@ const jhipster = spawn('yo', ['jhipster', '--skip-install', '--skip-cache'], {
 console.log(`=== Spawning JHipster in ${tmpDir.name} ===`);
 
 jhipster.stdout.on('data', (data) => {
-  const question = parseQuestion(data + '');
-  if (question) {
+  const prompt = stripAnsi(data + '');
+  try {
+    const question = parser.parse(prompt);
     const id = counter++;
-    console.log(`Question ${id}:`);
-    console.log(question);
+    fs.writeFile(path.join(tmpDir.name, `prompt${id}.txt`), prompt, 'utf8', () => {});
+    fs.writeFile(path.join(tmpDir.name, `question${id}.txt`), JSON.stringify(question, null, 2), 'utf8', () => {});
     const answer = answerQuestion(question);
     if (answer) {
-      console.log(`Answer ${id}:`);
-      console.log(answer.human);
-      console.log();
+      fs.writeFile(path.join(tmpDir.name, `answer${id}.txt`), answer.human, 'utf8', () => {});
       jhipster.stdin.write(answer.stdin);
     }
-  } else {
-    jhipster.stdin.write(answerQuestion.ENTER);
-  }
+  } catch (ignore) {}
 });
 
 jhipster.on('close', (code) => {

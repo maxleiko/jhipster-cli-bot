@@ -3,6 +3,8 @@
   "version": "0.0.1-alpha",
   "description": "Tries to browser all the possible answers of the JHipster Yeoman generator to create a feature model",
   "dependencies": {
+    "pegjs": "^0.10.0",
+    "strip-ansi": "^4.0.0",
     "tmp": "^0.0.33"
   },
   "devDependencies": {
@@ -14,6 +16,7 @@
     "lib": "lib"
   },
   "scripts": {
+    "gen-parser": "node tools/gen-parser.js > lib/parser.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
