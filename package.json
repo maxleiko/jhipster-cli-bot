@@ -7,9 +7,10 @@
     "tmp": "^0.0.33"
   },
   "devDependencies": {
-    "pegjs": "^0.10.0",
     "eslint": "^4.11.0",
-    "eslint-config-kevoree": "^1.0.1"
+    "eslint-config-kevoree": "^1.0.1",
+    "mocha": "^4.0.1",
+    "pegjs": "^0.10.0"
   },
   "main": "index.js",
   "directories": {
@@ -17,7 +18,7 @@
   },
   "scripts": {
     "gen-parser": "node tools/gen-parser.js > lib/parser.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test"
   },
   "repository": {
     "type": "git",
